@@ -11,7 +11,7 @@ Replaces:
 - '<<' with «
 
 And adds non-breaking space in various formats according to Polska Norma (PN-83/P-55366)
-+ some good practices
+and some good practices for the good measure.
 
 ## Installing
 
@@ -23,31 +23,31 @@ Put it somewhere in your path with appropriate permissions.
 
 Where option can be:
 
-html (default when omitted)
+`html` (default when omitted)
 
 : `u00a0` (NO-BREAK SPACE); word processor formats also accept this one; may be preferable for
   DOCX export (MS-Word format)
 
-test
+`test`
 
 : `u2218` (RING OPERATOR)
 
-docx
+`docx`
 
 : `u200d+u0020` (ZERO-WIDTH JOINER + SPACE); apparently it depends on font used (Calibri and
   Arial work, TNR and Cambria not) and/or if program is in Compatibility mode(?), overall
   solution no-reliable, stick with 00a0 when in doubt
 
-odt
+`odt`
 
 : `u2060+u0020` (WORD JOINER + SPACE); works very nice, note: line below contains zero-width
   char
 
-latex
+`latex`
 
 : `~` (TILDE)
 
-space
+`space`
 
 : `u0020` (SPACE); just do nothing with regard to spaces, stick with quotes replacement
 
