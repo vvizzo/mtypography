@@ -67,6 +67,10 @@ fi
 # 9. itp., itd. (nbsp before)
 # 10. tj., tzn. (nbsp after)
 # 11. str., godz. (nbsp after)
+# 12. Insert space before: ([{
+# 13. Insert space after:  )]}:;,?!
+# 14. Remove space before: @%)]}:;,./?!
+# 15. Remove space after:  @([{/
 # }}}
 sed -z -e 's/,,/„/g' -e "s/''/”/g" -e 's/>>/»/g' -e 's/<</«/g' \
     -e "s/\<\([iaouwzIAOUWZ]\)\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/g" \
@@ -78,7 +82,11 @@ sed -z -e 's/,,/„/g' -e "s/''/”/g" -e 's/>>/»/g' -e 's/<</«/g' \
     -e "s/\<\([Kk]s\.\|[Aa]bp\|[Bb]p\|[Kk]ard\.\|o\.\|[Hh]r\.\)\(\n\s*\| \)\([A-ZŁŻĆŚŹ]\)/\1$NBSP\3/g" \
     -e "s/\([[:print:]]\)\(\n\s*\| \)\(itp\.\|itd\.\|się\|no\)\>/\1$NBSP\3/g" \
     -e "s/\<\(tj\.\|tzn\.\)\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/g" \
-    -e "s/\<\(s\.\|str\.\|godz\.\|rok\|roku\|rokiem\)\(\n\s*\| \)\([0-9]\)/\1$NBSP\3/g"
+    -e "s/\<\(s\.\|str\.\|godz\.\|rok\|roku\|rokiem\)\(\n\s*\| \)\([0-9]\)/\1$NBSP\3/g" \
+    -e "s/\([^ ]\)\([[({]\)/\1 \2/g" \
+    -e "s/\([])}:;,?!]\)\([^ ]\)/\1 \2/g" \
+    -e "s/ \([])}%@:;,?!/]\)/\1/g" \
+    -e "s/\([[@({/]\) /\1/g" \
 
 # TODO {{{
 # Space after two-letter words: {{{
@@ -193,10 +201,6 @@ sed -z -e 's/,,/„/g' -e "s/''/”/g" -e 's/>>/»/g' -e 's/<</«/g' \
 # oby
 # }}}
 # Fix common punctuation mistakes: {{{
-# Insert space before: ([{
-# Insert space after:  )]}:;,?!
-# Remove space before: @%)]}:;,./?!
-# Remove space after:  @([{/
 # Replace - (HYPHEN) enclosed in spaces with -- (ndash) (risky)
 # }}}
 # }}}
