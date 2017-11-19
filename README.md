@@ -13,6 +13,8 @@ Replaces:
 And adds non-breaking space in various formats according to Polska Norma (PN-83/P-55366)
 and some good practices for the good measure.
 
+Fixes common mistakes with spaces around punctuation marks.
+
 ## Installing
 
 Put it somewhere in your path with appropriate permissions.
