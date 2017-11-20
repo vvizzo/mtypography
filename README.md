@@ -7,8 +7,8 @@ Replaces:
 
 - `,,` with „ 
 - `''` with ”
-- '>>' with »
-- '<<' with «
+- `>>` with »
+- `<<` with «
 
 And adds non-breaking space in various formats according to Polska Norma (PN-83/P-55366)
 and some good practices for the good measure.
