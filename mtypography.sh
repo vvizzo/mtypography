@@ -72,9 +72,10 @@ fi
 # 14. Remove space before: @%)]}:;,./?!
 # 15. Remove space after:  @([{/
 # 16. Space after two letter words:
-#     bo # Bo # by # By # co # Co # do # Do # ja # Ja # ją # Ją # je # Je # ku # Ku # li # Li # ma # Ma
-#     mi # Mi # my # My # na # Na # np. # Np. # ok. # Ok. # od # Od # ów # Ów # po # Po # są # Są # ta # Ta
-#     tą # Tą # tę # Tę # to # To # tu # Tu # ty # Ty # we # We # wy # Wy # za # Za # ze # Ze # że # Że
+#     bo # Bo # by # By # co # Co # do # Do # ja # Ja # ją # Ją # je # Je # ku # Ku # li # Li # ma # Ma 
+#     mi # Mi # my # My # na # Na # od # Od # ów # Ów # po # Po # są # Są # ta # Ta # tą # Tą # tę # Tę
+#     tę # Tę # to # To # tu # Tu # ty # Ty # we # We # wy # Wy # za # Za # ze # Ze # że # Że
+# 17. Space after two letter shortcuts: np. # Np. # ok. # Ok. 
 # }}}
 sed -z -e 's/,,/„/g' -e "s/''/”/g" -e 's/>>/»/g' -e 's/<</«/g' \
     -e "s/\<\([iaouwzIAOUWZ]\)\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/g" \
@@ -91,7 +92,8 @@ sed -z -e 's/,,/„/g' -e "s/''/”/g" -e 's/>>/»/g' -e 's/<</«/g' \
     -e "s/\([])}:;,?!]\)\([^ ]\)/\1 \2/g" \
     -e "s/ \([])}%@:;,?!/]\)/\1/g" \
     -e "s/\([[@({/]\) /\1/g" \
-    -e "s/\<\(bo\|by\|co\|do\|ja\|ją\|je\|ku\|li\|ma\|mi\|my\|na\|np\.\|ok\.\|od\|ów\|po\|są\|ta\|tą\|tę\|to\|tu\|ty\|we\|wy\|za\|ze\|że\)\>\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/gi" \
+    -e "s/\<\(bo\|by\|co\|do\|ja\|ją\|je\|ku\|li\|ma\|mi\|my\|na\|od\|ów\|po\|są\|ta\|tą\|tę\|to\|tu\|ty\|we\|wy\|za\|ze\|że\)\>\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/gi" \
+    -e "s/\<\(np\.\|ok\.\)\(\n\s*\| \)\([[:print:]]\)/\1$NBSP\3/gi" \
 
 # TODO {{{
 # Other, more aggressive with space after: {{{
